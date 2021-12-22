@@ -1,0 +1,22 @@
+<form>
+  <div class="row form-group">
+    <div class="col-md-3">
+      <label for="email">Email address</label>
+      <input type="email" name="email" class="form-control mb-2" id="email" placeholder="Enter email"
+             [(ngModel)]="signUpEmail">
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-3">
+      <label for="password">Password</label>
+      <input type="password" name="password" class="form-control mb-2" id="password" placeholder="Password"
+             [(ngModel)]="signUpPassword">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="saveCredentials()">Submit</button>
+</form>
+<div>{{signUpEmail}}</div>
+<div>{{signUpPassword}}</div>
+<div>{{getData()}}</div>
+<!--<div>{{signUpService.firstName}}</div>-->
+<app-forgot [password]="signUpPassword" [email]="signUpEmail"></app-forgot>

@@ -1,5 +1,19 @@
 import {Component, Input, OnInit} from '@angular/core';
 
+class obj {
+  static age = 27;
+
+  public name = 'Sergei';
+  private lastname = '';
+  protected title = '';
+}
+
+class newObj extends obj {
+  setName(name = '') {
+    return this.name = name;
+  }
+}
+
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
@@ -12,6 +26,13 @@ export class TimerComponent  implements OnInit {
   private timerId: any;
 
   constructor() {
+    let newInstance = new newObj();
+    newInstance.setName('Привет')
+
+    obj.age = 50;
+
+    console.log(obj.name);
+    console.log(obj.age);
   }
 
   ngOnInit() {
@@ -40,6 +61,6 @@ export class TimerComponent  implements OnInit {
     this.resetInterval()
     this.count = 0;
   }
-
-
 }
+
+

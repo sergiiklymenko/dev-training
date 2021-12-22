@@ -1,0 +1,11 @@
+<div>Hey there is Login</div>
+
+<form (ngSubmit)="login()">
+  <label for="email"></label>
+  <input class="form-control" type="email" id="email" name="email" [(ngModel)]="loginEmail">
+  <label for="password"></label>
+  <input class="form-control" type="text" id="password" name="password" [(ngModel)]="loginPassword">
+  <button class="btn btn-primary" type="submit">Login</button>
+</form>
+
+<app-account [acctAuth]="isAuth"></app-account>
