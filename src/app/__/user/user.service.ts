@@ -29,7 +29,8 @@ export class UserService implements UserInterface {
     }
     console.log(this)
     this.arr = this.storage.getData(this.key) || this.arr;
-    // console.table(this.arr);
+    console.log('Example Array++')
+    console.table(this.arr);
   }
 
   save(email: string, password: string) {

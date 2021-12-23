@@ -13,8 +13,7 @@ export class SignUpComponent implements OnInit {
   signUpEmail: string;
   signUpPassword: string;
 
-  constructor(public signUpService: SignUpService,
-              private userService: UserService) {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {

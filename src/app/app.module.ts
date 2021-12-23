@@ -20,6 +20,10 @@ import {MenuModule} from './menu/menu.module';
 import {AccountModule} from './account/account.module';
 import {FooterModule} from './footer/footer.module';
 import {StorageService} from './__/storage/storage.service';
+import {CatalogModule} from './catalog/catalog.module';
+import {CommonModule} from '@angular/common';
+import {CartModule} from './cart/cart.module';
+import {CheckoutModule} from './checkout/checkout.module';
 
 @NgModule({
   declarations: [
@@ -33,9 +37,13 @@ import {StorageService} from './__/storage/storage.service';
     CalcComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     LoginModule,
+    CatalogModule,
     AnchorModule,
+    CartModule,
+    CheckoutModule,
     MenuModule,
     AccountModule,
     FooterModule,
