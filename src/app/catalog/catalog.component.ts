@@ -42,8 +42,8 @@ export class CatalogComponent {
     this.list = this.productsService.getProducts();
   }
 
-  saveItemToCart(index) {
-    this.itemService.saveItems(index);
+  saveItemToCart(index, data) {
+    this.itemService.saveItems(index, data);
   }
 
 }

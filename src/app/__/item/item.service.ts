@@ -9,22 +9,24 @@ export class ItemService implements ProductInterface {
   price = '';
   title = '';
   itemArray: ProductInterface[] = [];
-  readonly itemKey = 'itemKey'
+
+  readonly itemKey = 'itemKey';
 
   constructor(private storageService: StorageService) {
     this.itemArray = this.storageService.getData(this.itemKey);
-    console.log('This is itemArray:')
+    console.log('This is itemArray:');
     console.table(this.itemArray);
   }
 
-  saveItems(index) {
-    if (index) {
-      console.log('This is index:')
-      console.log(index);
-      this.itemArray.push(index);
-      this.storageService.setData(this.itemKey, this.itemArray)
+  saveItems(index: number, data: any) {
+    this.itemArray[index] = data;
+    if (data) {
+      console.log('This is index:');
+      console.log(data);
+      this.itemArray.push(data);
+      this.storageService.setData(this.itemKey, this.itemArray);
     } else {
-      console.log('Item is not added to the cart')
+      console.log('Item is not added to the cart');
     }
   }
 
