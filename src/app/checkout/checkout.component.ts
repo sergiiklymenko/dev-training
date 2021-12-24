@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProductInterface} from '../__/products/products.interface';
+import {ItemService} from '../__/item/item.service';
 
 @Component({
   selector: 'app-checkout',
@@ -9,10 +10,11 @@ import {ProductInterface} from '../__/products/products.interface';
 export class CheckoutComponent implements OnInit{
   @Input() checkoutArr: ProductInterface[] = [];
 
-  constructor() {
+  constructor(private itemsService: ItemService ) {
   }
 
   ngOnInit() {
+    this.checkoutArr = this.itemsService.getItems();
   }
 
 

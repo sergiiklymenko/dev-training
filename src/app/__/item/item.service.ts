@@ -13,9 +13,9 @@ export class ItemService implements ProductInterface {
   readonly itemKey = 'itemKey';
 
   constructor(private storageService: StorageService) {
-    this.itemArray = this.storageService.getData(this.itemKey);
+    // this.itemArray = this.storageService.getData(this.itemKey);
     console.log('This is itemArray:');
-    console.table(this.itemArray);
+    console.log(typeof this.itemArray);
   }
 
   saveItems(index: number, data: any) {
