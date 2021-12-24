@@ -8,21 +8,20 @@ import {Router} from '@angular/router';
   templateUrl: './cart.component.html'
 })
 
-export class CartComponent implements OnInit{
+export class CartComponent implements OnInit {
 
-  cartArr: ProductInterface[] = [];
+  cartArr: ProductInterface[] = this.itemService.getItems();
+
   constructor(private itemService: ItemService,
               private router: Router) {
 
   }
 
   ngOnInit() {
-    this.cartArr = this.itemService.getItems();
-    console.log('This is checkoutArr:');
-    console.table(this.cartArr);
+
   }
 
-  toCheckout() {
+  toCheckout(index) {
     this.router.navigate(['checkout']);
   }
 

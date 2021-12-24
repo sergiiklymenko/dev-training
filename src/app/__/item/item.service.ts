@@ -13,13 +13,12 @@ export class ItemService implements ProductInterface {
   readonly itemKey = 'itemKey';
 
   constructor(private storageService: StorageService) {
-    // this.itemArray = this.storageService.getData(this.itemKey);
+    this.itemArray = this.storageService.getData(this.itemKey) || this.itemArray;
     console.log('This is itemArray:');
-    console.log(typeof this.itemArray);
+    console.table(this.itemArray);
   }
 
-  saveItems(index: number, data: any) {
-    this.itemArray[index] = data;
+  saveItems(data: any) {
     if (data) {
       console.log('This is index:');
       console.log(data);
@@ -31,7 +30,7 @@ export class ItemService implements ProductInterface {
   }
 
   getItems() {
-    return this.storageService.getData(this.itemKey);
+    return this.storageService.getData(this.itemKey) || [];
   }
 
 }

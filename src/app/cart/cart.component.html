@@ -1,6 +1,6 @@
 <div>This is Shopping Cart!</div>
 <ul>
-  <li *ngFor="let item of cartArr">{{item.title}} - {{item.price}}</li>
+  <li *ngFor="let item of cartArr; let i = index">{{item.title}} - {{item.price}}
+    <a class="btn btn-primary" [href]="'checkout/'+i">Checkout</a>
+  </li>
 </ul>
-<button class="btn btn-primary" (click)="toCheckout()">Checkout</button>
-<app-checkout [checkoutArr]="cartArr"></app-checkout>

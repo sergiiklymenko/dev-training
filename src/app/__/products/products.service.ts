@@ -22,9 +22,5 @@ export class ProductsService {
     }
   ];
 
-  getProducts() {
-    return this.productsArr.slice();
-  }
-
 }
 
