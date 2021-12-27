@@ -1,5 +1,6 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {UserService} from '../__/user/user.service';
+import {HttpClientService} from '../__/httpClient/http-client.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   loginPassword: string;
   isAuth = false;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private httpClient: HttpClientService) {
   }
 
   ngOnInit() {
@@ -26,7 +28,12 @@ export class LoginComponent implements OnInit {
     } else {
       console.log('User is not found');
     }
+    this.httpClient.get('https://randomuser.me/api/').subscribe((result) => {
+      console.log('Result:');
+      console.log(result)
+    })
   }
+
 
 }
 

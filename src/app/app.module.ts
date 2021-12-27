@@ -24,6 +24,8 @@ import {CatalogModule} from './catalog/catalog.module';
 import {CommonModule} from '@angular/common';
 import {CartModule} from './cart/cart.module';
 import {CheckoutModule} from './checkout/checkout.module';
+import {HttpClientService} from './__/httpClient/http-client.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,10 +36,11 @@ import {CheckoutModule} from './checkout/checkout.module';
     TimerComponent,
     VariablesComponent,
     WikiComponent,
-    CalcComponent,
+    CalcComponent
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     BrowserModule,
     LoginModule,
     CatalogModule,
@@ -51,10 +54,13 @@ import {CheckoutModule} from './checkout/checkout.module';
     ForgotModule,
     FeedbackModule,
     NotFoundModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   exports: [AccountModule],
-  providers: [StorageService],
+  providers: [
+    StorageService,
+    HttpClientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
