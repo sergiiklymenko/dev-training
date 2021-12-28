@@ -32,7 +32,8 @@ export class AppComponent {
     {url: 'account', title: 'Account'},
     {url: 'orders', title: 'Orders'},
     {url: 'catalog', title: 'Catalog'},
-    {url: 'cart', title: 'Cart'}
+    {url: 'cart', title: 'Cart'},
+    {url: 'users', title: 'Users'}
   ];
 
   title = 'devtraining';

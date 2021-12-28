@@ -26,6 +26,8 @@ import {CartModule} from './cart/cart.module';
 import {CheckoutModule} from './checkout/checkout.module';
 import {HttpClientService} from './__/httpClient/http-client.service';
 import {HttpClientModule} from '@angular/common/http';
+import {UsersModule} from './users/users.module';
+import {ProfileModule} from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     CommonModule,
     HttpClientModule,
+    UsersModule,
+    ProfileModule,
     BrowserModule,
     LoginModule,
     CatalogModule,

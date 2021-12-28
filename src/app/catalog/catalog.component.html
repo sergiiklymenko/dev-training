@@ -1,5 +1,5 @@
 <div>This is Catalog:</div>
-<ul class="container" *ngFor="let item of list; index as i">
+<ul class="container" *ngFor="let item of list; let i=index">
   <li>{{i}}. {{item.title}} - {{item.price}}
     <button class="btn btn-primary" (click)="saveItemToCart(item)">Add to Cart</button>
   </li>

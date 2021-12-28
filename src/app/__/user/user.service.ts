@@ -27,10 +27,10 @@ export class UserService implements UserInterface {
       this.password = foundUser.password;
       this.isAuth = true;
     }
-    console.log(this)
+    // console.log(this)
     this.arr = this.storage.getData(this.key) || this.arr;
-    console.log('Example Array++')
-    console.table(this.arr);
+    // console.log('Example Array++')
+    // console.table(this.arr);
   }
 
   save(email: string, password: string) {

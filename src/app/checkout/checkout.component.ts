@@ -24,8 +24,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.checkoutArr = this.itemsService.getItems();
     this.subscription.add(this.route.params.subscribe((params: Params) => {
-      console.log('This is params:');
-      console.log(params);
+      // console.log('This is params:');
+      // console.log(params);
       this.id = params.id;
       this.getSpecificItem();
     }));
