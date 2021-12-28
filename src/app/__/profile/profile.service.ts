@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from '../storage/storage.service';
+import {ProfileInterface} from './profile.interface';
 
 @Injectable()
 
 export class ProfileService {
-  profileArray = [];
+  profilesArray: ProfileInterface[] = [];
   readonly profileKey = 'profileKey';
 
   constructor(private storageService: StorageService) {
@@ -13,16 +14,16 @@ export class ProfileService {
 
   saveProfile(data: any) {
     if (data) {
-      this.profileArray.push(data);
-      this.storageService.setData(this.profileKey, this.profileArray);
-      console.log('User is saved');
+      this.profilesArray = data;
+      this.storageService.setData(this.profileKey, this.profilesArray);
+      console.log('List of Users is saved');
     } else {
-      console.log('List of users are not saved');
+      console.log('List of users is not saved');
     }
   }
 
   getProfile() {
-    return this.storageService.getData(this.profileKey) || {};
+    return this.storageService.getData(this.profileKey) || [];
   }
 
 }

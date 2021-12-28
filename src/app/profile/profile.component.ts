@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProfileService} from '../__/profile/profile.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {ProfileInterface} from '../__/profile/profile.interface';
 
 @Component({
   selector: 'app-profile',
@@ -9,8 +10,9 @@ import {Subscription} from 'rxjs';
 })
 
 export class ProfileComponent implements OnInit, OnDestroy {
-  profile = [];
+  profilesArray: ProfileInterface[] = this.profileService.getProfile();
   profileId = '';
+  profile: ProfileInterface;
   subscription: Subscription = new Subscription();
 
   constructor(private profileService: ProfileService,
@@ -18,14 +20,23 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.profile = this.profileService.getProfile();
-    console.log('This is Profile:');
-    console.log(this.profile);
+    console.log(this.profilesArray);
     this.subscription.add(this.route.params.subscribe((params) => {
       console.log('This is params:');
       console.log(params);
-      this.profileId = params.id.value;
+      this.profileId = params.id;
+      this.selectProfile();
     }));
+  }
+
+  selectProfile() {
+    this.profilesArray.forEach((profile:ProfileInterface) => {
+      const date = new Date(profile.dob.date);
+      profile.dob.date = `${date.getDay()} d. ${date.getMonth()} m. ${date.getFullYear()} y.`;
+      if (profile.id.value === this.profileId) {
+        this.profile = profile;
+      }
+    })
   }
 
   ngOnDestroy() {
