@@ -3,6 +3,7 @@ import {HttpClientService} from '../__/httpClient/http-client.service';
 import {ProfileService} from '../__/profile/profile.service';
 import {ProfileInterface} from '../__/profile/profile.interface';
 import {HttpRequestService} from '../__/httpRequest/http-request.service';
+import {error} from 'util';
 
 @Component({
   selector: 'app-users',
@@ -43,46 +44,19 @@ export class UsersComponent implements OnInit {
       console.log('Error catch: ');
       console.log(error);
     });
-    // this.getIncorrectData('https://domainsloash.co/foo/bar');
 
-    this.httpClient.get('https://domainsloash.co/foo/bar', {}, true)
-      .then(() => {
-      console.log('Inside THEN: ')
-    }).catch((error) => {
-        console.log('Inside catch block: ');
-        console.log(error);
-      }
-    )
-  }
-
-  getIncorrectData(url: string): any {
-    return new Promise(function(resolve, reject) {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', url, true);
-      xhr.onload = function() {
+    this.httpClient.get('https://randomuser.me/api/?results=10', {}, true).then(
+      (result) => {
         try {
-          if (this.status == 200) {
-            resolve(this.response);
-          } else {
-            let error = new Error(this.statusText);
-            error['code'] = this.status;
-            reject(error);
-            console.log('Inside Error code: ');
-            console.log(error);
+          if (result.file.name > 0) {
+            console.log(result.file.name)
           }
         }
-        catch (e) {
-          console.log(e);
+        catch (error) {
+          throw new Error('This is error here Randomuser.me')
         }
-
-      };
-      xhr.onerror = function() {
-        reject(new Error('Network Error'));
-      };
-      xhr.send();
-    }).then(() => {
-
-    }).catch((error) => {
+      }
+    ).catch((error) => {
       console.log('Inside catch block: ');
       console.log(error);
     });
