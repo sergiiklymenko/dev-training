@@ -14,7 +14,7 @@ export class HttpClientService {
 
   }
 
-  private doRequest(type: number, path = '', body = '', options = {}) {
+  private doRequest(type: number, path = '', body = '', options = {}, isPromise = false) {
     let reqResult;
     switch (type) {
       case this.TYPE_POST:
@@ -33,11 +33,11 @@ export class HttpClientService {
         reqResult = this.http.get(path, options);
         break;
     }
-    return reqResult;
+    return isPromise? reqResult.toPromise() : reqResult;
   }
 
-  get(path = '', options = {}) {
-    return this.doRequest(this.TYPE_GET, path, '', options);
+  get(path = '', options = {}, isPromise = false) {
+    return this.doRequest(this.TYPE_GET, path, '', options, isPromise);
   }
 
   post(path = '', body = '', options = {}) {
@@ -53,7 +53,7 @@ export class HttpClientService {
   }
 
   head(path = '', options = {}) {
-    return this.doRequest(this.TYPE_HEAD, path, '', options)
+    return this.doRequest(this.TYPE_HEAD, path, '', options);
   }
 
 

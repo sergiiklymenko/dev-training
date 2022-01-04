@@ -24,6 +24,14 @@ export class HttpRequestService {
     });
   }
 
+  getReqs(url: string): any {
+    return new Promise(function() {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.send();
+    });
+  }
+
   postRequest(url: string, data: string): any {
     return new Promise(function(resolve, reject) {
       const xhr = new XMLHttpRequest();

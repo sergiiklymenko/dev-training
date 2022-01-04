@@ -1,0 +1,8 @@
+<div>Error</div>
+<script>try {
+  alert('Begin try catch');
+  lalala; // ошибка, переменная не определена!
+  alert('End of try catch');
+} catch(err) {
+  throw new Error('Error is thrown')
+}</script>

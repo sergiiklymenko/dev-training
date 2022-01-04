@@ -28,6 +28,9 @@ import {HttpClientService} from './__/httpClient/http-client.service';
 import {HttpClientModule} from '@angular/common/http';
 import {UsersModule} from './users/users.module';
 import {ProfileModule} from './profile/profile.module';
+import {TestErrorComponent} from './test-error/test-error.component';
+import {HighlightDirective} from './__/directive/highlight.directive';
+import {CoreModule} from './__/core.module';
 
 @NgModule({
   declarations: [
@@ -38,10 +41,12 @@ import {ProfileModule} from './profile/profile.module';
     TimerComponent,
     VariablesComponent,
     WikiComponent,
-    CalcComponent
+    CalcComponent,
+    TestErrorComponent
   ],
   imports: [
     CommonModule,
+    CoreModule,
     HttpClientModule,
     UsersModule,
     ProfileModule,
