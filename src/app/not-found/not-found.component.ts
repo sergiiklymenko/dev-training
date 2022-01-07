@@ -7,6 +7,6 @@ import {Component} from '@angular/core';
 })
 
 export class NotFoundComponent {
-
+code = 'This route does not exist!'
 }
 

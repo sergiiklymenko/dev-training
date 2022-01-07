@@ -10,11 +10,11 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of usersList; let i=index">
+  <tr *ngFor="let user of usersList | slice:0:end; let i=index">
     <th scope="row">{{i}}</th>
     <td>{{user.name.first}} {{user.name.last}}</td>
     <td><img src="{{user.picture.thumbnail}}" alt="no picture present"></td>
-    <td>{{user.dob.date}}</td>
+    <td>{{user.dob.date | date }}</td>
     <td>{{user.id.value}}</td>
     <td></td>
     <td>
@@ -23,3 +23,6 @@
   </tr>
   </tbody>
 </table>
+<a href="#" *ngIf="end < usersList.length" (click)="end = usersList.length;$event.preventDefault()">Show more</a>
+<p>{{'NNN' | exchange}}</p>
+<p>{{'754254675.56798' | currency : 'EUR' : 'code' : '1.2-4' }}</p>

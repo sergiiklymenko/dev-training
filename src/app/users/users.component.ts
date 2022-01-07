@@ -3,7 +3,6 @@ import {HttpClientService} from '../__/httpClient/http-client.service';
 import {ProfileService} from '../__/profile/profile.service';
 import {ProfileInterface} from '../__/profile/profile.interface';
 import {HttpRequestService} from '../__/httpRequest/http-request.service';
-import {error} from 'util';
 
 @Component({
   selector: 'app-users',
@@ -12,6 +11,7 @@ import {error} from 'util';
 
 export class UsersComponent implements OnInit {
   usersList: ProfileInterface[] = [];
+  end = 5;
 
   constructor(private httpClient: HttpClientService,
               private httpRequest: HttpRequestService,
@@ -64,14 +64,9 @@ export class UsersComponent implements OnInit {
 
   handleId() {
     this.usersList.forEach((profile:ProfileInterface) => {
-      if (!profile.id || !profile.id.value || profile.id.value === '') {
-        profile.id = {
-          value: this.randomString()
-        };
-      }
-      profile.id.value = profile.id.value.replace(' ', '');
-      profile.id.value = profile.id.value.replace('-', '');
-      profile.id.value = profile.id.value.replace('.', '');
+      profile.id = {
+        value: this.randomString()
+      };
     });
   }
 
