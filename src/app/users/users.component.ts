@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     new Promise(
       (resolve, reject) => {
-        this.httpClient.get('https://randomuser.me/api/?results=10').subscribe((data) => {
+        this.httpClient.get('https://randomuser.me/api/?results=50').subscribe((data) => {
           console.log('First User:');
           console.log(data);
           if (data && data.results && data.results.length >= 9) {

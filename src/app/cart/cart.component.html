@@ -4,3 +4,15 @@
     <a class="btn btn-primary" [href]="'checkout/'+i">Checkout</a>
   </li>
 </ul>
+<div>
+  <label for="ccNumber">Credit Card Number</label>
+  <input id="ccNumber" name="ccNumber" type="number" [(ngModel)]="ccNumber">
+</div>
+<div>{{ccNumber | ccFormat}}</div>
+<button class="btn btn-primary" (click)="validateCard()">Format</button>
+
+<div>
+  <label for="phoneNumber">Phone Number</label>
+  <input id="phoneNumber" name="phoneNumber" type="number" (keypress)="phoneNumber" [(ngModel)]="phoneNumber">
+  {{phoneNumber | parseNumber}}
+</div>
