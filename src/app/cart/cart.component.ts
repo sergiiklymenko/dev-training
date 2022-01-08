@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ItemService} from '../__/item/item.service';
 import {ProductInterface} from '../__/products/products.interface';
 import {Router} from '@angular/router';
+import { AsYouType } from 'libphonenumber-js'
 
 
 @Component({
@@ -28,8 +29,8 @@ export class CartComponent implements OnInit {
     this.router.navigate(['checkout']);
   }
 
-  validateCard() {
-    return this.creditcardutils.parseCardNumber(this.ccNumber);
+  validateCard(number: string) {
+    return new AsYouType('US').input(number)
   }
 
 }

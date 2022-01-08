@@ -6,7 +6,8 @@ import {HttpRequestService} from '../__/httpRequest/http-request.service';
 
 @Component({
   selector: 'app-users',
-  templateUrl: './users.component.html'
+  templateUrl: './users.component.html',
+  styleUrls: ['./user.component.css']
 })
 
 export class UsersComponent implements OnInit {

@@ -1,15 +1,16 @@
 import {Pipe, PipeTransform} from '@angular/core';
+import * as format from 'creditcardutils'
 
 @Pipe({
   name: 'ccFormat'
 })
 
 export class ccFormatPipe implements PipeTransform {
-  creditCardUtils = require('creditcardutils');
 
   transform(value: string): string {
     console.log('Inside format pipe')
-    return this.creditCardUtils.formatCardNumber(value);
+    // let creditcardutils = require('creditcardutils');
+    return format.formatCardNumber(value);
   }
 
 }

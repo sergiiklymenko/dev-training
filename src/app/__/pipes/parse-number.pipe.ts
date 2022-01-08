@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {AsYouType, CountryCode, parsePhoneNumber} from 'libphonenumber-js';
+import {AsYouType, CountryCode} from 'libphonenumber-js';
 
 @Pipe({
   name: 'parseNumber'
@@ -12,8 +12,8 @@ export class parseNumberPipe implements PipeTransform {
 
   }
 
-  stylePhoneNumber(phone: string, country: CountryCode) {
-    const phoneNumber = parsePhoneNumber(phone, country);
-    phoneNumber.formatNational();
-  }
+  // stylePhoneNumber(phone: string, country: CountryCode) {
+  //   const phoneNumber = parsePhoneNumber(phone, country);
+  //   phoneNumber.formatNational();
+  // }
 }
